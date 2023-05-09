@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 def remove_char_at(str, n):
     """Remove str char at n"""
     if n < len(str) and n >= 0:
