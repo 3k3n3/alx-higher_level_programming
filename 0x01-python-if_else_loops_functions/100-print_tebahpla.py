@@ -4,4 +4,4 @@ for x in range(122, 96, -1):
         char = chr(x)
     else:
         char = chr(x - 32)
-    print(c, end="")
+    print("{}".format(char), end="")
