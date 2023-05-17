@@ -20,7 +20,7 @@ void reverse_list(listint_t **head)
 		curr = next;
 	}
 	*head = prev;
-	return (*head);
+	/*return (*head);*/
 }
 
 /**
