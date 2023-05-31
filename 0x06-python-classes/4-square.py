@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# 0-square.py
 """A module that defines a square."""
 
 
