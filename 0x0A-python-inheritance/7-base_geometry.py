@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Base Geometry."""
 
 
 class BaseGeometry:
@@ -15,8 +16,8 @@ class BaseGeometry:
             name: name of object
 
         Raises:
-            TypeError: if size is not integer
-            ValueError: if size is less than zero
+            TypeError: if type(value) is not integer
+            ValueError: if value is lte zero
 
         """
         if type(value) is not int:
