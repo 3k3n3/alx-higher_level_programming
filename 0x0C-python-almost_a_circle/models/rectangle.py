@@ -25,18 +25,23 @@ class Rectangle(Base):
         for i in range(self.get_height()):
             print(" " * self.get_x() + "#" * self.get_width())
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Assigns an argument to each attribute."""
         if len(args) > 0:
             self.id = args[0]
-        if len(args) > 1:
-            self.set_width(args[1]),
-        if len(args) > 2:
-            self.set_height(args[2]),
-        if len(args) > 3:
-            self.set_x(args[3]),
-        if len(args) > 4:
-            self.set_y(args[4]),
+        # Skip the id argument if present
+        if args:
+            args = args[1:]
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "width":
+                    self.set_width(value)
+                elif key == "height":
+                    self.set_height(value)
+                elif key == "x":
+                    self.set_x(value)
+                elif key == "y":
+                    self.set_y(value)
 
     def get_width(self):
         """Public getter."""
@@ -94,3 +99,13 @@ class Rectangle(Base):
         __width = self.__width
         __height = self.__height
         return f"[Rectangle] ({id}) {__x}/{__y} {__width}/{__height}"
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle."""
+        return {
+            "id": self.id,
+            "width": self.__width,
+            "height": self.__height,
+            "x": self.__x,
+            "y": self.__y,
+        }
