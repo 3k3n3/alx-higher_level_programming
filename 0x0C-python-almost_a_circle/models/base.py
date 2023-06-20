@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Base class."""
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -62,3 +64,84 @@ class Base:
             return []
         instances = [cls.create(**i) for i in json.loads(json_data)]
         return instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serialize and save instances to a CSV file."""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserialize and load instances from a CSV file."""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r") as file:
+                reader = csv.reader(file)
+                instances = []
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        instance = cls.create(
+                            id=int(row[0]),
+                            width=int(row[1]),
+                            height=int(row[2]),
+                            x=int(row[3]),
+                            y=int(row[4]),
+                        )
+                    elif cls.__name__ == "Square":
+                        instance = cls.create(
+                            id=int(row[0]),
+                            size=int(row[1]),
+                            x=int(row[2]),
+                            y=int(row[3]),
+                        )
+                    instances.append(instance)
+                return instances
+        except FileNotFoundError:
+            return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw shapw with turtle."""
+        win = turtle.Screen()
+        win.bgcolor("light blue")
+        win.title("ALX Turtle GUI")
+        draw = turtle.Turtle()
+
+        for obj in list_rectangles:
+            draw.penup()
+            draw.goto(obj.get_x(), obj.get_y())
+            draw.pendown()
+            draw.begin_fill()
+            for i in range(2):
+                draw.color("blue")
+                draw.forward(obj.get_width())
+                draw.right(90)
+                draw.forward(obj.get_height())
+                draw.right(90)
+                draw.fillcolor("white")
+            draw.end_fill()
+
+        for obj in list_squares:
+            draw.penup()
+            draw.goto(obj.get_x(), obj.get_y())
+            draw.pendown()
+            draw.begin_fill()
+            for i in range(4):
+                draw.color("green")
+                draw.forward(obj.get_width())
+                draw.right(90)
+                draw.fillcolor("yellow")
+            draw.end_fill()
+
+        turtle.done()
