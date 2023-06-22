@@ -65,7 +65,6 @@ class Base:
         instances = [cls.create(**i) for i in cls.from_json_string(json_data)]
         return instances
 
-
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Serialize and save instances to a CSV file."""
