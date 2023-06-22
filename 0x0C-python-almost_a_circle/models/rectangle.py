@@ -51,7 +51,9 @@ class Rectangle(Base):
     @get_width.setter
     def set_width(self, width):
         """Public setter for width."""
-        if not isinstance(width, int):
+        # if not isinstance(width, int):
+        if (type(width) is not int):
+
             raise TypeError("width must be an integer")
         elif width <= 0:
             raise ValueError("width must be > 0")
@@ -65,7 +67,8 @@ class Rectangle(Base):
     @get_height.setter
     def set_height(self, height):
         """Public setter for height."""
-        if not isinstance(height, int):
+        if (type(height) is not int):
+        # if not isinstance(height, int):
             raise TypeError("height must be an integer")
         elif height <= 0:
             raise ValueError("height must be > 0")
