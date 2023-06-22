@@ -43,12 +43,10 @@ class Rectangle(Base):
                 elif key == "y":
                     self.set_y(value)
 
-    @property
     def get_width(self):
         """Public getter."""
         return self.__width
 
-    @get_width.setter
     def set_width(self, width):
         """Public setter for width."""
         if not isinstance(width, int):
@@ -57,12 +55,10 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = width
 
-    @property
     def get_height(self):
         """Public getter."""
         return self.__height
 
-    @get_height.setter
     def set_height(self, height):
         """Public setter for height."""
         if not isinstance(height, int):
@@ -71,12 +67,10 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = height
 
-    @property
     def get_x(self):
         """Public getter."""
         return self.__x
 
-    @get_x.setter
     def set_x(self, x):
         """Public setter for x."""
         if not isinstance(x, int):
@@ -85,12 +79,10 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = x
 
-    @property
     def get_y(self):
         """Public getter."""
         return self.__y
 
-    @get_y.setter
     def set_y(self, y):
         """Public setter for y."""
         if not isinstance(y, int):
