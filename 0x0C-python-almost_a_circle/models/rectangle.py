@@ -8,10 +8,10 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Rectangle class constructor."""
-        self.get_width(width)
-        self.get_height(height)
-        self.get_x(x)
-        self.get_y(y)
+        self.set_width(width)
+        self.set_height(height)
+        self.set_x(x)
+        self.set_y(y)
         super().__init__(id=id)
 
     def area(self):
@@ -35,13 +35,13 @@ class Rectangle(Base):
         if kwargs:
             for key, value in kwargs.items():
                 if key == "width":
-                    self.get_width(value)
+                    self.set_width(value)
                 elif key == "height":
-                    self.get_height(value)
+                    self.set_height(value)
                 elif key == "x":
-                    self.get_x(value)
+                    self.set_x(value)
                 elif key == "y":
-                    self.get_y(value)
+                    self.set_y(value)
 
     @property
     def get_width(self):
@@ -49,13 +49,13 @@ class Rectangle(Base):
         return self.__width
 
     @get_width.setter
-    def get_width(self, value):
+    def set_width(self, width):
         """Public setter for width."""
-        if (type(value) is not int):
+        if not isinstance(width, int):
             raise TypeError("width must be an integer")
-        if value <= 0:
+        elif width <= 0:
             raise ValueError("width must be > 0")
-        self.__width = value
+        self.__width = width
 
     @property
     def get_height(self):
@@ -63,13 +63,13 @@ class Rectangle(Base):
         return self.__height
 
     @get_height.setter
-    def get_height(self, value):
+    def set_height(self, height):
         """Public setter for height."""
-        if (type(value) is not int):
+        if not isinstance(height, int):
             raise TypeError("height must be an integer")
-        elif value <= 0:
+        elif height <= 0:
             raise ValueError("height must be > 0")
-        self.__height = value
+        self.__height = height
 
     @property
     def get_x(self):
@@ -77,13 +77,13 @@ class Rectangle(Base):
         return self.__x
 
     @get_x.setter
-    def get_x(self, value):
+    def set_x(self, x):
         """Public setter for x."""
-        if (type(value) is not int):
+        if not isinstance(x, int):
             raise TypeError("x must be an integer")
-        if value < 0:
+        if x < 0:
             raise ValueError("x must be >= 0")
-        self.__x = value
+        self.__x = x
 
     @property
     def get_y(self):
@@ -91,13 +91,13 @@ class Rectangle(Base):
         return self.__y
 
     @get_y.setter
-    def get_y(self, value):
+    def set_y(self, y):
         """Public setter for y."""
-        if (type(value) is not int):
+        if not isinstance(y, int):
             raise TypeError("y must be an integer")
-        if value < 0:
+        if y < 0:
             raise ValueError("y must be >= 0")
-        self.__y = value
+        self.__y = y
 
     def __str__(self):
         """String representation."""
