@@ -58,12 +58,21 @@ class Base:
         """Returns a list of instances."""
         file = f"{cls.__name__}.json"
         try:
-            with open(file) as f:
+            with open(file, "r") as f:
                 json_data = f.read()
+                list_dictionaries = cls.from_json_string(json_data)
         except FileNotFoundError():
             return []
-        instances = [cls.create(**i) for i in json.loads(json_data)]
+        instances = [cls.create(**i) for i in list_dictionaries]
         return instances
+
+
+
+    #             list_dictionaries = cls.from_json_string(my_str)
+    #             for dictionary in list_dictionaries:
+    #                 list_of_instances.append(cls.create(**dictionary))
+    #     return list_of_instances
+
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
