@@ -91,15 +91,15 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = y
 
-    # def __str__(self):
-    #     """String representation."""
-    #         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
-    # {self.__width}/{self.__height}"
-
     def __str__(self):
-        """Defines a format for the string representation of the class"""
+        """String representation."""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
-{self.__width}/{self.__height}"
+    {self.__width}/{self.__height}"
+
+#     def __str__(self):
+#         """Defines a format for the string representation of the class"""
+#         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
+# {self.__width}/{self.__height}"
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle."""
