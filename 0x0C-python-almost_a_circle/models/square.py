@@ -4,6 +4,8 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """Square Class."""
+    
     def __init__(self, size, x=0, y=0, id=None):
         """Class constructor."""
         super().__init__(id=id, x=x, y=y, width=size, height=size)
@@ -17,7 +19,6 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute."""
-
         if args:
             if len(args) > 0:
                 self.id = args[0]
