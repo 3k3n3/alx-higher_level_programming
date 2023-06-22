@@ -49,13 +49,13 @@ class Rectangle(Base):
         return self.__width
 
     @get_width.setter
-    def get_width(self, width):
+    def get_width(self, value):
         """Public setter for width."""
-        if (type(width) is not int):
+        if (type(value) is not int):
             raise TypeError("width must be an integer")
-        if width <= 0:
+        if value <= 0:
             raise ValueError("width must be > 0")
-        self.__width = width
+        self.__width = value
 
     @property
     def get_height(self):
@@ -63,13 +63,13 @@ class Rectangle(Base):
         return self.__height
 
     @get_height.setter
-    def get_height(self, height):
+    def get_height(self, value):
         """Public setter for height."""
-        if (type(height) is not int):
+        if (type(value) is not int):
             raise TypeError("height must be an integer")
-        if height <= 0:
+        elif value <= 0:
             raise ValueError("height must be > 0")
-        self.__height = height
+        self.__height = value
 
     @property
     def get_x(self):
@@ -77,13 +77,13 @@ class Rectangle(Base):
         return self.__x
 
     @get_x.setter
-    def get_x(self, x):
+    def get_x(self, value):
         """Public setter for x."""
-        if (type(x) is not int):
+        if (type(value) is not int):
             raise TypeError("x must be an integer")
-        if x < 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
-        self.__x = x
+        self.__x = value
 
     @property
     def get_y(self):
@@ -91,13 +91,13 @@ class Rectangle(Base):
         return self.__y
 
     @get_y.setter
-    def get_y(self, y):
+    def get_y(self, value):
         """Public setter for y."""
-        if (type(y) is not int):
+        if (type(value) is not int):
             raise TypeError("y must be an integer")
-        if y < 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
-        self.__y = y
+        self.__y = value
 
     def __str__(self):
         """String representation."""
