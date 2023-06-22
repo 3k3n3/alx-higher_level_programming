@@ -8,10 +8,10 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Rectangle class constructor."""
-        self.set_width(width)
-        self.set_height(height)
-        self.set_x(x)
-        self.set_y(y)
+        self.get_width(width)
+        self.get_height(height)
+        self.get_x(x)
+        self.get_y(y)
         super().__init__(id=id)
 
     def area(self):
@@ -35,13 +35,13 @@ class Rectangle(Base):
         if kwargs:
             for key, value in kwargs.items():
                 if key == "width":
-                    self.set_width(value)
+                    self.get_width(value)
                 elif key == "height":
-                    self.set_height(value)
+                    self.get_height(value)
                 elif key == "x":
-                    self.set_x(value)
+                    self.get_x(value)
                 elif key == "y":
-                    self.set_y(value)
+                    self.get_y(value)
 
     @property
     def get_width(self):
@@ -49,7 +49,7 @@ class Rectangle(Base):
         return self.__width
 
     @get_width.setter
-    def set_width(self, width):
+    def get_width(self, width):
         """Public setter for width."""
         if (type(width) is not int):
             raise TypeError("width must be an integer")
@@ -63,7 +63,7 @@ class Rectangle(Base):
         return self.__height
 
     @get_height.setter
-    def set_height(self, height):
+    def get_height(self, height):
         """Public setter for height."""
         if (type(height) is not int):
             raise TypeError("height must be an integer")
@@ -77,7 +77,7 @@ class Rectangle(Base):
         return self.__x
 
     @get_x.setter
-    def set_x(self, x):
+    def get_x(self, x):
         """Public setter for x."""
         if (type(x) is not int):
             raise TypeError("x must be an integer")
@@ -91,7 +91,7 @@ class Rectangle(Base):
         return self.__y
 
     @get_y.setter
-    def set_y(self, y):
+    def get_y(self, y):
         """Public setter for y."""
         if (type(y) is not int):
             raise TypeError("y must be an integer")
