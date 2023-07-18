@@ -2,7 +2,7 @@
 """Base class."""
 import json
 import csv
-import turtle
+#import turtle
 
 
 class Base:
@@ -109,10 +109,10 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
-
+        """
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """Draw shapw with turtle."""
+        #Draw shapw with turtle.
         win = turtle.Screen()
         win.bgcolor("light blue")
         win.title("ALX Turtle GUI")
@@ -145,3 +145,4 @@ class Base:
             draw.end_fill()
 
         turtle.done()
+        """
