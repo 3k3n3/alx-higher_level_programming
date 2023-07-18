@@ -58,11 +58,11 @@ class Base:
         """Returns a list of instances."""
         file = f"{cls.__name__}.json"
         try:
-            with open(file) as f:
+            with open(file, "r") as f:
                 json_data = f.read()
         except FileNotFoundError():
             return []
-        instances = [cls.create(**i) for i in json.loads(json_data)]
+        instances = [cls.create(**i) for i in cls.from_json_string(json_data)]
         return instances
 
     @classmethod
