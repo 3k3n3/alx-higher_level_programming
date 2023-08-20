@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     # Exucute query & fetch results
     query = """
-        SELECT * FROM states WHERE name='{}' ORDER BY id ASC;
+        SELECT * FROM states WHERE BINARY name='{}' ORDER BY id ASC;
         """.format(argv[4])
     cur.execute(query)
 
