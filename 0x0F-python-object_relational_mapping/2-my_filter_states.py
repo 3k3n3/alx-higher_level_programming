@@ -18,7 +18,11 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Exucute query & fetch results
-    cur.execute(f"SELECT * FROM states WHERE name='{argv[4]}' ORDER BY id ASC")
+    query = """
+        SELECT * FROM states WHERE name='{}' ORDER BY id ASC;
+        """.format(argv[4])
+    cur.execute(query)
+
     result = cur.fetchall()
 
     for row in result:

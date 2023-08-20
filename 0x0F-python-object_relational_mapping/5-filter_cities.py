@@ -22,10 +22,10 @@ if __name__ == "__main__":
         SELECT cities.name FROM cities
         JOIN states ON cities.state_id=states.id
         WHERE states.name=%(state)s
-        ORDER BY states.id ASC; 
-        """,{'state': argv[4]})
+        ORDER BY states.id ASC;
+        """, {'state': argv[4]})
     result = cur.fetchall()
-    
+
     # print in requested format
     print(", ".join([i[0] for i in result]))
 

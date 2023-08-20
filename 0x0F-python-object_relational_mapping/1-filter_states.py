@@ -18,7 +18,10 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Exucute query & fetch results
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;")
+    # Binary forces LIKE to be case sensitive
+    cur.execute("""
+        SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC;
+        """)
     result = cur.fetchall()
 
     for row in result:
