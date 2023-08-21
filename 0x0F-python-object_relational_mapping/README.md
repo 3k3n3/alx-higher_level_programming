@@ -5,4 +5,6 @@
 - [Introduction to MySQL in Python](https://www.mikusa.com/python-mysql-docs/introduction.html)
 - [MySQLdb Connection in Python](https://www.geeksforgeeks.org/mysqldb-connection-python/)
 - [Python MySQL](https://www.w3schools.com/python/python_mysql_getstarted.asp)
+- [Is SQL Case Sensitive?](https://www.scaler.com/topics/is-sql-case-sensitive/)
+- SQLAlchemy: [Creating a DB with Python](https://medium.com/@sandyjtech/creating-a-database-using-python-and-sqlalchemy-422b7ba39d7e) and [Mapping Python Classes](https://www.geeksforgeeks.org/sqlalchemy-mapping-python-classes/)
 
