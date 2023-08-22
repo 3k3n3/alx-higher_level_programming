@@ -26,5 +26,10 @@ if __name__ == "__main__":
     session.add(state)
     session.commit()
 
+    # Print new id
+    state = session.query(State).filter(
+            State.name == "Louisiana").first()
+    print(state.id)
+
     # close conection to db
     session.close()
