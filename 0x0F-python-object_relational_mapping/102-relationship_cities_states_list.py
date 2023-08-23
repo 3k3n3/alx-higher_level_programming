@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Add State & City: California & San Francisco to hbtn_0e_100_usa."""
+"""List all cities in hbtn_0e_101_usa."""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -22,14 +22,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Insert into db
-    cali = State(name="California")
-    san_fr = City(name="San Francisco")
-    cali.cities.append(san_fr)
-
-    session.add(cali)
-    session.add(san_fr)
-    session.commit()
+    # Get all cities
+    states = session.query(State).join(City).order_by(City.id).all()
+    for state in states:
+        for city in state.cities:
+            print("{}: {} -> {}".format(city.id, city.name, state.name))
 
     # close conection to db
     session.close()
